@@ -1,1 +1,9 @@
 # Passion-Project
+
+Cigar Friend  - 
+
+An app/website that will aid new/seasoned cigar smokers build up their knowledge and personal library of their favorite stogies. The user can search for a particular brand they're interested with the library available to them that are linked to information from various popular sites. Or the user can use their mobile camera to take a picture of the cigar (which utilizes Google lens) which will return to them a brief description of the origin, wrapper color, strength, blend, cost, and rating of the cigar. The user can also upload photos as a personal library collection that they could reference back to if they enjoyed a particular cigar The user can also participate in the community forum(i.e. reddit, craiglist). They can also write a review, discuss cigar favorites, and any other related topics through the app/website forum section. Connecting to your location with your mobile device GPS, you can use the community search feature to look for upcoming events, B&M sales, or organizing a local meet-up. 
+
+Imagine walking into your local brick and mortar (B&M) cigar shops and walking into a humidor. Some B&M have humidors that can have hundreds of boxes of many assorted brands, colors, and sizes. How do you choose the right one, or something close to what you researched before coming in? The store rep will help you find a few generics, but what if one catches your eye and they are not sure of it? This app will help you choose your next favorite smoke, save the info so you can order more later, or share it with your fellow stogie's enthusiasts. And as you begin to enjoy the peace of smoking a good cigar you can even dive into the role of a reviewer for your favorite or not so favorite brands and share it with your fellow cigar friends.  
+
+I will be utilizing MYSQL to manage the DB, Spring Boot to translate the request and output to the client and incorporating Angular to build up the client view.  
