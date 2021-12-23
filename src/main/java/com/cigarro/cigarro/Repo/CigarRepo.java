@@ -19,5 +19,7 @@ public interface CigarRepo extends CrudRepository<Cigar, Long> {
 
     List<Cigar> findAll(@Param("id") Long id);
 
+    // TODO : what is going on with this query - getting Status 505 - Column manufacturer not found
+
 
 }
