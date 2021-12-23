@@ -1,10 +1,12 @@
 package com.cigarro.cigarro.Cigar;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 
 /*TODO
@@ -14,6 +16,7 @@ Cigar requires an inner join w/ the brand, strength, and country table - on its 
 - filtering/search methods in the cigar controller class
 - UML
 **THINK** -- (MYSQL) ACID properties - Atomic(defining something once), Consistency (data is always consistent), Isolation (ordering/ability to run certain query in any order), Durability (backups)
+- JPA Buddy is acting up...whats happening?
 */
 
 
@@ -22,12 +25,21 @@ public class Cigar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @JsonIgnore
     private Long id;
 
+    @Column(name = "manufacturer")
     private String brand;
+
+    @Column(name = "brand")
     private String name;
+
+    @Column(name ="strength")
     private String strength;
+
+    @Column(name = "country")
     private String country;
+
 
     public Cigar() {
     }

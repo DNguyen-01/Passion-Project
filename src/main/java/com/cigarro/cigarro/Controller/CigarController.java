@@ -1,18 +1,40 @@
 package com.cigarro.cigarro.Controller;
 
-import com.cigarro.cigarro.Repo.BrandRepo;
+import com.cigarro.cigarro.Cigar.Cigar;
+import com.cigarro.cigarro.Repo.CigarRepo;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
-@RequestMapping(path= "/cigar_controller")
+@RequestMapping("/api")
 public class CigarController {
 
-    private final BrandRepo cigarRepo;
+    @Autowired
+    private final CigarRepo cigarRepo;
 
-    public CigarController(BrandRepo brandRepo) {
-        this.cigarRepo = brandRepo;
+
+    public CigarController(CigarRepo cigarRepo) {
+        this.cigarRepo = cigarRepo;
     }
+
+
+    @GetMapping("/cigar")
+    public Iterable<Cigar> getAllCigar(){
+        return cigarRepo.findAll();
+    }
+
+
+    @GetMapping("/cigar/{id}")
+    public Cigar getAllCigar(@PathVariable Long id){
+        return cigarRepo.findById(id).orElseThrow(RuntimeException::new);
+    }
+
+
+
+
 
 
 
