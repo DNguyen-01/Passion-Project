@@ -3,6 +3,7 @@ package com.cigarro.cigarro.Cigar;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Country {
@@ -14,6 +15,7 @@ public class Country {
 
     @Column(name = "name")
     private String country;
+
 
     public Country() {
     }

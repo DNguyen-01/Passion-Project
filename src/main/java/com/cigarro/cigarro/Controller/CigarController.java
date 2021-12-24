@@ -16,6 +16,7 @@ public class CigarController {
     private final CigarRepo cigarRepo;
 
 
+
     public CigarController(CigarRepo cigarRepo) {
         this.cigarRepo = cigarRepo;
     }

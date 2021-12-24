@@ -40,8 +40,32 @@ public class Cigar {
     @Column(name = "country")
     private String country;
 
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "brand_name")
+    private Set<Brand> brandsList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Set<Country> countryList;
+
+    @OneToMany(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", referencedColumnName = "id")
+    private Set<Strength> strengthList;
+
 
     public Cigar() {
+    }
+
+    public Set<Brand> getBrandsList() {
+        return brandsList;
+    }
+
+    public Set<Country> getCountryList() {
+        return countryList;
+    }
+
+    public Set<Strength> getStrengthList() {
+        return strengthList;
     }
 
     public Cigar(Long id, String brand, String name, String strength, String country) {

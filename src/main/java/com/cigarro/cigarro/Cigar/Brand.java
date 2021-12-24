@@ -3,6 +3,7 @@ package com.cigarro.cigarro.Cigar;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Brand {
@@ -12,8 +13,20 @@ public class Brand {
     @JsonIgnore
     private Long id;
 
-    @Column(name = "name")
+    @Column(name = "brand_name")
     private String brand;
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    private Set<Cigar> cigar;
+
+    public Set<Cigar> getCigar() {
+        return cigar;
+    }
+
+    public void setCigar(Set<Cigar> cigar) {
+        this.cigar = cigar;
+    }
 
     public Brand() {
     }

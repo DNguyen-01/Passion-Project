@@ -3,6 +3,7 @@ package com.cigarro.cigarro.Cigar;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 public class Strength {
@@ -14,6 +15,13 @@ public class Strength {
 
     @Column(name = "name")
     private String strength;
+
+    @Column(name = "brand")
+    private String brand;
+
+    @OneToMany
+    @JoinColumn(name = "id")
+    private Set<Cigar> cigar;
 
     public Strength() {
     }
