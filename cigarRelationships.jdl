@@ -1,0 +1,56 @@
+
+
+entity Strength {
+	strengthId Long,
+	strength String
+}
+
+
+entity Country {
+	
+    countryId Long,
+    countryName String
+}
+
+
+entity User {
+
+	userId Long,
+    firstName String,
+	lastName String,
+	email String
+	
+}
+
+entity Brand {
+	id Long,
+	brandName String
+}
+
+entity Cigar {
+	id Long,
+	manufactuctuer String,
+	brand String,
+    strength String,
+    country String
+    
+}
+
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	Strenth to Country{countryId},
+    Country to Strength{strengthId},
+    Country to Brand{brandId},
+    Brand to Strength{strengthId},
+    User to Cigar{cigarId}
+    
+}
+
+
+relationship OneToMany {
+	Cigar{strengthId} to Strength,
+	Cigar{countryId} to Country,
+	Cigar{brandId} to Brand
+}
+
