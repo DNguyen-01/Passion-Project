@@ -1,0 +1,101 @@
+
+
+entity Strength {
+	strengthId Long,
+	strength String
+}
+
+/**
+ * Task entity.
+ * @author The JHipster team.
+ */
+entity Country {
+	
+    countryId Long,
+    countryName String
+}
+
+/**
+ * The Employee entity.
+ */
+entity User {
+	/**
+	* The firstname attribute.
+	*/
+	userId Long,
+    firstName String,
+	lastName String,
+	email String
+	
+}
+
+entity Brand {
+	id Long,
+	brandName String
+}
+
+entity Cigar {
+	id Long,
+	manufactuctuer String,
+	brand String,
+    strength String,
+    country String
+    
+}
+
+enum Language {
+    ENGLISH, SPANISH
+}
+
+relationship OneToOne {
+	Country{countryId} to Brand
+}
+
+relationship OneToOne {
+	Strength{countryId} to Country
+}
+
+relationship OneToOne {
+	Brand{strengthId} to Strength
+}
+
+relationship ManyToMany {
+	Job{task(title)} to Task{job}
+}
+
+// defining multiple OneToMany relationships with comments
+relationship OneToMany {
+	User to Cigar{cigarId},
+	/**
+	* A relationship
+	*/
+	Department to
+	/**
+	* Another side of the same relationship
+	*/
+	Employee{department}
+}
+
+relationship ManyToOne {
+	Cigar{cigarId} to Brand
+}
+
+// defining multiple oneToOne relationships
+relationship OneToOne {
+	Cigar{strengthId} to Strength,
+	Cigar{countryId} to Country,
+	Cigar{brandId} to Brand
+}
+
+// Set pagination options
+paginate JobHistory, Employee with infinite-scroll
+paginate Job with pagination
+
+// Use Data Transfer Objects (DTO)
+// dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl except Employee, Job
+
+// Set an angular suffix
+// angularSuffix * with mySuffix
