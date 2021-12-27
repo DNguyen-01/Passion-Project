@@ -1,15 +1,14 @@
 package com.cigarro.cigarro.Repo;
 
 import com.cigarro.cigarro.Cigar.Cigar;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface CigarRepo extends JpaRepository<Cigar, Long> {
+public interface CigarRepo extends CrudRepository<Cigar, Long> {
 
 //    @Query(value = "SELECT brand.name AS manufacturer, cigar.name AS BRAND, country.name AS country, strength.name AS strength FROM Cigar " +
 //            "INNER JOIN Brand ON brand.id=cigar.brand_id INNER JOIN country ON " +
@@ -20,5 +19,15 @@ public interface CigarRepo extends JpaRepository<Cigar, Long> {
     // TODO : what is going on with this query - getting Status 505 - Column manufacturer not found
     // TODO : column ID not found - with query active
 
+
+    Cigar findCigarById(Long id);
+
+    //this is writing the query - tables has been created by the JPA
+    List<Cigar> findCigarByBrandName(String name);
+    List<Cigar> findCigarByStrengthName(String name);
+    List<Cigar> findCigarByCountryName(String name);
+    List<Cigar> findCigarByBrandNameAndStrengthName(String brandName, String strengthName);
+    List<Cigar> findCigarByBrandNameAndCountryName(String brandBame, String countryName);
+    List<Cigar> findCigarByBrandNameAndCountryNameAndStrengthName(String brandName, String countryName, String strengthName);
 
 }

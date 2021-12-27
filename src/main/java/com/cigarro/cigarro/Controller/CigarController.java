@@ -1,36 +1,28 @@
 package com.cigarro.cigarro.Controller;
 
 import com.cigarro.cigarro.Cigar.Cigar;
-import com.cigarro.cigarro.Repo.CigarRepo;
+import com.cigarro.cigarro.Service.CigarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
-
 @Controller
-@RequestMapping("/api")
+@RequestMapping("/api") // controller should be calling service
 public class CigarController {
 
     @Autowired
-    private final CigarRepo cigarRepo;
-
-
-
-    public CigarController(CigarRepo cigarRepo) {
-        this.cigarRepo = cigarRepo;
-    }
+    private CigarService cigarService;
 
 
     @GetMapping("/cigar")
     public Iterable<Cigar> getAllCigar(){
-        return cigarRepo.findAll();
+        return cigarService.findAll();
     }
 
 
     @GetMapping("/cigar/{id}")
-    public Cigar getAllCigar(@PathVariable Long id){
-        return cigarRepo.findById(id).orElseThrow(RuntimeException::new);
+    public Cigar getCigarById(@PathVariable Long id){
+        return cigarService.getCigarById(id);
     }
 
 

@@ -3,32 +3,22 @@ package com.cigarro.cigarro.Cigar;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Strength {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonIgnore
     private Long id;
 
-    @Column(name = "name")
-    private String strength;
-
-    @Column(name = "brand")
-    private String brand;
-
-    @OneToMany
-    @JoinColumn(name = "id")
-    private Set<Cigar> cigar;
+    private String name;
 
     public Strength() {
     }
 
-    public Strength(Long id, String strength) {
+    public Strength(Long id, String name) {
         this.id = id;
-        this.strength = strength;
+        this.name = name;
     }
 
     public Long getId() {
@@ -39,19 +29,19 @@ public class Strength {
         this.id = id;
     }
 
-    public String getStrength() {
-        return strength;
+    public String getName() {
+        return name;
     }
 
-    public void setStrength(String strength) {
-        this.strength = strength;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Strength{" +
                 "id=" + id +
-                ", strength='" + strength + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }

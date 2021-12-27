@@ -9,25 +9,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+//@RequestMapping("/api")
 public class BrandController {
-
-    @Autowired
-    private BrandRepo cigarRepo;
-
-    public BrandController(BrandRepo cigarRepo) {
-        this.cigarRepo = cigarRepo;
-    }
-
-    @GetMapping("/brands")
-    public Iterable<Brand> getBrand(){
-        return cigarRepo.findAll();
-    }
-
-    @GetMapping("/{id}")
-    public Brand getCigarBrand(@PathVariable Long id){
-        return cigarRepo.findById(id).orElseThrow(RuntimeException::new);
-    }
+//
+//    @Autowired
+//    private BrandRepo cigarRepo;
+//
+//    public BrandController(BrandRepo cigarRepo) {
+//        this.cigarRepo = cigarRepo;
+//    }
+//
+////    @GetMapping("/brands")
+//    public Iterable<Brand> getBrand(){
+//        return cigarRepo.findAll();
+//    }
+//
+////    @GetMapping("/{id}")
+//    public Brand getCigarBrand(@PathVariable Long id){
+//        return cigarRepo.findById(id).orElseThrow(RuntimeException::new);
+//    }
 
 
 }

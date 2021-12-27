@@ -25,62 +25,18 @@ public class Cigar {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonIgnore
     private Long id;
 
-    @Column(name = "manufacturer")
-    private String brand;
-
-    @Column(name = "brand")
+    @ManyToOne
+    private Brand brand;
     private String name;
-
-    @Column(name ="strength")
-    private String strength;
-
-    @Column(name = "country")
-    private String country;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "brand_name")
-    private Set<Brand> brandsList;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private Set<Country> countryList;
-
-    @OneToMany(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id", referencedColumnName = "id")
-    private Set<Strength> strengthList;
+    @ManyToOne
+    private Strength strength;
+    @ManyToOne
+    private Country country;
 
 
     public Cigar() {
-    }
-
-    public Set<Brand> getBrandsList() {
-        return brandsList;
-    }
-
-    public Set<Country> getCountryList() {
-        return countryList;
-    }
-
-    public Set<Strength> getStrengthList() {
-        return strengthList;
-    }
-
-    public Cigar(Long id, String brand, String name, String strength, String country) {
-        this.id = id;
-        this.brand = brand;
-        this.name = name;
-        this.strength = strength;
-        this.country = country;
-    }
-
-    public Cigar(String brand, String name, String strength, String country) {
-        this.brand = brand;
-        this.name = name;
-        this.strength = strength;
-        this.country = country;
     }
 
     public Long getId() {
@@ -91,11 +47,11 @@ public class Cigar {
         this.id = id;
     }
 
-    public String getBrand() {
+    public Brand getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public void setBrand(Brand brand) {
         this.brand = brand;
     }
 
@@ -107,19 +63,19 @@ public class Cigar {
         this.name = name;
     }
 
-    public String getStrength() {
+    public Strength getStrength() {
         return strength;
     }
 
-    public void setStrength(String strength) {
+    public void setStrength(Strength strength) {
         this.strength = strength;
     }
 
-    public String getCountry() {
+    public Country getCountry() {
         return country;
     }
 
-    public void setCountry(String country) {
+    public void setCountry(Country country) {
         this.country = country;
     }
 
@@ -127,13 +83,12 @@ public class Cigar {
     public String toString() {
         return "Cigar{" +
                 "id=" + id +
-                ", brand='" + brand + '\'' +
+                ", brand=" + brand +
                 ", name='" + name + '\'' +
-                ", strength='" + strength + '\'' +
-                ", country='" + country + '\'' +
+                ", strength=" + strength +
+                ", country=" + country +
                 '}';
     }
-
-    public void addAttribute(String listCigar, List<Cigar> listCigar1) {
-    }
 }
+
+

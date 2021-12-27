@@ -1,14 +1,31 @@
 package com.cigarro.cigarro.Service;
 
-//@Service
-//public class CigarService {
+import com.cigarro.cigarro.Cigar.Cigar;
+import com.cigarro.cigarro.Repo.CigarRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.ArrayList;
+import java.util.List;
+
+@Service
+public class CigarService {
 //
-//    private BrandRepo cigarRepository;
-//
-//    @Autowired
-//    public CigarService(BrandRepo cigarRepository) {
-//        this.cigarRepository = cigarRepository;
-//    }
+    @Autowired
+    private CigarRepo cigarRepository;
+
+
+    public Cigar getCigarById(Long id){
+
+        return cigarRepository.findCigarById(id);
+
+    }
+
+    public Iterable<Cigar> findAll() {
+
+        return cigarRepository.findAll();
+    }
+
 //
 //    public Cigar create(Cigar cigar){
 //        return cigarRepository.save(cigar);
@@ -43,4 +60,4 @@ package com.cigarro.cigarro.Service;
 
 
 
-//}
+}

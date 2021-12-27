@@ -3,26 +3,22 @@ package com.cigarro.cigarro.Cigar;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonIgnore
     private Long id;
 
-    @Column(name = "name")
-    private String country;
-
+    private String name;
 
     public Country() {
     }
 
-    public Country(Long id, String country) {
+    public Country(Long id, String name) {
         this.id = id;
-        this.country = country;
+        this.name = name;
     }
 
     public Long getId() {
@@ -33,19 +29,19 @@ public class Country {
         this.id = id;
     }
 
-    public String getCountry() {
-        return country;
+    public String getName() {
+        return name;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
     public String toString() {
         return "Country{" +
                 "id=" + id +
-                ", country='" + country + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
