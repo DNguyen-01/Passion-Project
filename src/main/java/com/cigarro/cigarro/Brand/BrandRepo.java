@@ -1,6 +1,5 @@
-package com.cigarro.cigarro.Repo;
+package com.cigarro.cigarro.Brand;
 
-import com.cigarro.cigarro.Cigar.Brand;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

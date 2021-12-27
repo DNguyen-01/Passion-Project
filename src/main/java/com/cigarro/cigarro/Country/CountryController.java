@@ -1,7 +1,6 @@
-package com.cigarro.cigarro.Controller;
+package com.cigarro.cigarro.Country;
 
-import com.cigarro.cigarro.Cigar.Country;
-import com.cigarro.cigarro.Repo.CountryRepo;
+import com.cigarro.cigarro.Brand.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,24 +8,28 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/country-controller")
 public class CountryController {
 
     @Autowired
-    private CountryRepo countryRepo;
+    private CountryService countryService;
 
-    public CountryController(CountryRepo countryRepo) {
-        this.countryRepo = countryRepo;
-    }
 
     @GetMapping("/countries")
     public Iterable<Country> getCountry(){
-        return countryRepo.findAll();
+        return countryService.findAll();
     }
 
     @GetMapping("/countries/{id}")
     public Country getCigarCountry(@PathVariable Long id){
-        return countryRepo.findById(id).orElseThrow(RuntimeException::new);
+        return countryService.getCountryById(id).orElseThrow(RuntimeException::new);
     }
+
+    @GetMapping("/create")
+    public Country create(Country name){
+        return countryService.create(name);
+    }
+
+
 
 }

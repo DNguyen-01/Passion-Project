@@ -1,12 +1,10 @@
 package com.cigarro.cigarro.Cigar;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import com.cigarro.cigarro.Brand.Brand;
+import com.cigarro.cigarro.Country.Country;
+import com.cigarro.cigarro.Strength.Strength;
 
 import javax.persistence.*;
-import java.util.List;
-import java.util.Set;
 
 
 /*TODO

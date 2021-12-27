@@ -1,4 +1,4 @@
-package com.cigarro.cigarro.Repo;
+package com.cigarro.cigarro.Cigar;
 
 import com.cigarro.cigarro.Cigar.Cigar;
 import org.springframework.data.repository.CrudRepository;

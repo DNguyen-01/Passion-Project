@@ -1,7 +1,7 @@
-package com.cigarro.cigarro.Repo;
+package com.cigarro.cigarro.Country;
 
 
-import com.cigarro.cigarro.Cigar.Country;
+import com.cigarro.cigarro.Country.Country;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

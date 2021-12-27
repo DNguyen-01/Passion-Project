@@ -1,11 +1,11 @@
-package com.cigarro.cigarro.Cigar;
+package com.cigarro.cigarro.Country;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 
 @Entity
-public class Strength {
+public class Country {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,10 +13,10 @@ public class Strength {
 
     private String name;
 
-    public Strength() {
+    public Country() {
     }
 
-    public Strength(Long id, String name) {
+    public Country(Long id, String name) {
         this.id = id;
         this.name = name;
     }
@@ -39,7 +39,7 @@ public class Strength {
 
     @Override
     public String toString() {
-        return "Strength{" +
+        return "Country{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

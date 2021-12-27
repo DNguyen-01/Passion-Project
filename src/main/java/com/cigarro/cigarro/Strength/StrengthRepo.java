@@ -1,6 +1,6 @@
-package com.cigarro.cigarro.Repo;
+package com.cigarro.cigarro.Strength;
 
-import com.cigarro.cigarro.Cigar.Strength;
+import com.cigarro.cigarro.Strength.Strength;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
