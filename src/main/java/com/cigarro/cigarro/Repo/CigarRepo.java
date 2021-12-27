@@ -27,7 +27,7 @@ public interface CigarRepo extends CrudRepository<Cigar, Long> {
     List<Cigar> findCigarByStrengthName(String name);
     List<Cigar> findCigarByCountryName(String name);
     List<Cigar> findCigarByBrandNameAndStrengthName(String brandName, String strengthName);
-    List<Cigar> findCigarByBrandNameAndCountryName(String brandBame, String countryName);
+    List<Cigar> findCigarByBrandNameAndCountryName(String brandName, String countryName);
     List<Cigar> findCigarByBrandNameAndCountryNameAndStrengthName(String brandName, String countryName, String strengthName);
 
 }

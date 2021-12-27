@@ -27,9 +27,9 @@ public class Cigar {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    private String name;
     @ManyToOne
     private Brand brand;
-    private String name;
     @ManyToOne
     private Strength strength;
     @ManyToOne

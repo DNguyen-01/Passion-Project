@@ -9,24 +9,24 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-//@RequestMapping("/api")
+@RequestMapping("/api")
 public class CountryController {
-//
-//    @Autowired
-//    private CountryRepo countryRepo;
-//
-//    public CountryController(CountryRepo countryRepo) {
-//        this.countryRepo = countryRepo;
-//    }
-//
-//    @GetMapping("/countries")
-//    public Iterable<Country> getCountry(){
-//        return countryRepo.findAll();
-//    }
-//
-//    @GetMapping("/countries/{id}")
-//    public Country getCigarCountry(@PathVariable Long id){
-//        return countryRepo.findById(id).orElseThrow(RuntimeException::new);
-//    }
+
+    @Autowired
+    private CountryRepo countryRepo;
+
+    public CountryController(CountryRepo countryRepo) {
+        this.countryRepo = countryRepo;
+    }
+
+    @GetMapping("/countries")
+    public Iterable<Country> getCountry(){
+        return countryRepo.findAll();
+    }
+
+    @GetMapping("/countries/{id}")
+    public Country getCigarCountry(@PathVariable Long id){
+        return countryRepo.findById(id).orElseThrow(RuntimeException::new);
+    }
 
 }
