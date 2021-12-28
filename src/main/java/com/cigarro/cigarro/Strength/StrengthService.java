@@ -29,7 +29,6 @@ public class StrengthService {
         Strength strengthInDataBase =  strengthRepository.findById(id).get();
         String newStrength = strength.getName();
         strengthInDataBase.setName(newStrength);
-        strengthInDataBase = strengthRepository.save(strengthInDataBase);
         return strengthRepository.save(strengthInDataBase);
     }
 

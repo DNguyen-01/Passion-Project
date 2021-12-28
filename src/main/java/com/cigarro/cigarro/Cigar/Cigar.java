@@ -23,7 +23,7 @@ Cigar requires an inner join w/ the brand, strength, and country table - on its 
 public class Cigar {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;

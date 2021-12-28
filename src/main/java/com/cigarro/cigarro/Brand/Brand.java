@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Brand {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
 

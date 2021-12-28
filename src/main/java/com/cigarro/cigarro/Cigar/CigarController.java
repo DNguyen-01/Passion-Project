@@ -2,6 +2,7 @@ package com.cigarro.cigarro.Cigar;
 
 import com.cigarro.cigarro.Cigar.Cigar;
 import com.cigarro.cigarro.Cigar.CigarService;
+import com.cigarro.cigarro.Strength.Strength;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,8 +26,8 @@ public class    CigarController {
         return cigarService.getCigarById(id);
     }
 
-    @RequestMapping(value = "/create", method = RequestMethod.POST)
-    public Cigar create(Cigar name) {
+    @PostMapping(value = "/cigar")
+    public Cigar create(@RequestBody Cigar name) {
         return cigarService.create(name);
     }
 
@@ -35,6 +36,10 @@ public class    CigarController {
         return cigarService.update(id, cigar);
     }
 
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public Cigar delete(@PathVariable Long id){
+        return cigarService.delete(id);
+    }
 
 }
 
