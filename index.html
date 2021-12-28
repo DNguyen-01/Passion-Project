@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Cigarro</h1>
+
+<label>Choose a brand:</label>
+<select id="manufacturers">
+
+    <script>
+const brands = async() => {
+  let headers = new Headers();
+  headers.append('Accept', 'application/json');
+
+  fetch('http://localhost:8083/brand-controller/brands', {
+    method: 'GET',
+    headers: headers
+  }).then(response => response.json()).then( json => {
+    manufacturer_payload = json;
+    for (var i = 0; i < manufacturer_payload.length; i++) {
+      var option = document.createElement("OPTION");
+      option.innerHTML = manufacturer_payload[i].name;
+      option.value = manufacturer_payload[i].id;
+      manufacturers.options.add(option);
+      console.log("added option: " + JSON.stringify(option, null, 2));
+    }
+  }
+).catch(error =>
+    console.log('An error occurred: ' + error.message)
+  );
+}
+var manufacturer_payload;
+document.addEventListener('DOMContentLoaded', function(){
+    brands();
+}, false);
+</script>
+
+</body>
+</html>
