@@ -3,6 +3,7 @@ package com.cigarro.cigarro.Cigar;
 import com.cigarro.cigarro.Brand.Brand;
 import com.cigarro.cigarro.Country.Country;
 import com.cigarro.cigarro.Strength.Strength;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
 

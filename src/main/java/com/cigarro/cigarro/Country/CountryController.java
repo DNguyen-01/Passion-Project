@@ -2,10 +2,7 @@ package com.cigarro.cigarro.Country;
 
 import com.cigarro.cigarro.Brand.Brand;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/country-controller")
@@ -22,14 +19,23 @@ public class CountryController {
 
     @GetMapping("/countries/{id}")
     public Country getCigarCountry(@PathVariable Long id){
-        return countryService.getCountryById(id).orElseThrow(RuntimeException::new);
+        return countryService.getCountryById(id);
     }
 
-    @GetMapping("/create")
-    public Country create(Country name){
+    @PostMapping("/countries")
+    public Country create(@RequestBody Country name){
         return countryService.create(name);
     }
 
+    @RequestMapping(value = "/update/{id}", method = RequestMethod.PUT)
+    public Country update(@PathVariable Long id, @RequestBody Country country){
+        return countryService.update(id, country);
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
+    public Country delete(@PathVariable Long id){
+        return countryService.delete(id);
+    }
 
 
 }

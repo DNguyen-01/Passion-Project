@@ -15,6 +15,7 @@ public class CigarService {
 
     }
 
+
     public Iterable<Cigar> findAll() {
         return cigarRepository.findAll();
     }

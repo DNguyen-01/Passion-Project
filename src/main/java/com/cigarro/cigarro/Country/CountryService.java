@@ -12,8 +12,12 @@ public class CountryService {
     @Autowired
     private CountryRepo countryRepository;
 
-    public Optional<Country> getCountryById(Long id){
-        return countryRepository.findById(id);
+    public Country getCountryById(Long id){
+        return countryRepository.findCountryById(id);
+    }
+
+    public Iterable<Country> findAll() {
+        return countryRepository.findAll();
     }
 
     public Country create(Country brand){
@@ -21,12 +25,18 @@ public class CountryService {
     }
 
     public Country update(Long id, Country country){
-        countryRepository.findById(id);
-        return countryRepository.save(country);
+        Country countryInDataBase = countryRepository.findById(id).get();
+        String newCountry = country.getName();
+        countryInDataBase.setName(newCountry);
+        countryInDataBase = countryRepository.save(countryInDataBase);
+        return countryRepository.save(countryInDataBase);
     }
 
-    public Iterable<Country> findAll() {
-        return countryRepository.findAll();
+    public Country delete(Long id){
+        Country countryToBeDeleted = countryRepository.findCountryById(id);
+        countryRepository.deleteById(id);
+        return countryToBeDeleted;
+
     }
 
 
