@@ -23,7 +23,7 @@ public interface CigarRepo extends CrudRepository<Cigar, Long> {
     Cigar findCigarById(Long id);
 
     //this is writing the query - tables has been created by the JPA
-    List<Cigar> findCigarByBrandName(String name);
+    List<Cigar> findCigarByBrandId(Long id);
     List<Cigar> findCigarByStrengthName(String name);
     List<Cigar> findCigarByCountryName(String name);
     List<Cigar> findCigarByBrandNameAndStrengthName(String brandName, String strengthName);

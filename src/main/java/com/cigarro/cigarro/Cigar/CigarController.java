@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/cigar-controller") // controller should be calling service
-public class    CigarController {
+public class CigarController {
 
     @Autowired
     private CigarService cigarService;
@@ -19,7 +19,6 @@ public class    CigarController {
     public Iterable<Cigar> getAllCigar() {
         return cigarService.findAll();
     }
-
 
     @RequestMapping(value = "/cigar/{id}", method = RequestMethod.GET)
     public Cigar getCigarById(@PathVariable Long id) {
@@ -39,6 +38,11 @@ public class    CigarController {
     @RequestMapping(value = "/delete/{id}", method = RequestMethod.DELETE)
     public Cigar delete(@PathVariable Long id){
         return cigarService.delete(id);
+    }
+
+    @GetMapping("/test")
+    public Iterable<Cigar> searchCigars(){
+        return cigarService.search();
     }
 
 }
