@@ -18,7 +18,6 @@ Cigar requires an inner join w/ the brand, strength, and country table - on its 
 - JPA Buddy is acting up...whats happening?
 */
 
-
 @Entity
 public class Cigar {
 

@@ -18,7 +18,7 @@ public class CigarService {
     }
 
     public Iterable<Cigar> search(){//add parameters for search
-        return cigarRepository.findCigarByBrandId(1L);
+        return cigarRepository.findCigarByBrandId(10L);
     }
 
     public Iterable<Cigar> findAll() {
