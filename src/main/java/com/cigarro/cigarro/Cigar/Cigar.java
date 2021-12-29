@@ -14,8 +14,6 @@ Cigar requires an inner join w/ the brand, strength, and country table - on its 
 - come up w/ a wire mock for the front-end  - basic front end UI - search function, free floating text
 - filtering/search methods in the cigar controller class
 - UML
-**THINK** -- (MYSQL) ACID properties - Atomic(defining something once), Consistency (data is always consistent), Isolation (ordering/ability to run certain query in any order), Durability (backups)
-- JPA Buddy is acting up...whats happening?
 */
 
 @Entity
