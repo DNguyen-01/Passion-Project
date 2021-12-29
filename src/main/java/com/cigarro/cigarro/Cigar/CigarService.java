@@ -17,8 +17,33 @@ public class CigarService {
         return cigarRepository.findCigarById(id);
     }
 
-    public Iterable<Cigar> search(){//add parameters for search
-        return cigarRepository.findCigarByBrandId(10L);
+    public Iterable<Cigar> search(Long countryId, Long brandId, Long strengthId){//add parameters for search
+        if(countryId == null && brandId == null && strengthId == null){
+            return cigarRepository.findAll();
+        }else if(countryId != null){
+            if(brandId != null){
+                if(strengthId != null){
+                    return cigarRepository.findCigarByBrandIdAndCountryIdAndStrengthId(brandId,countryId,strengthId);
+                }else{
+                    return cigarRepository.findCigarByBrandIdAndCountryId(brandId,countryId);
+                }
+            }else{
+                if(strengthId != null){
+                    return cigarRepository.findCigarByCountryIdAndStrengthId(countryId, strengthId);
+                }else{
+                    return cigarRepository.findCigarByCountryId(countryId);
+                }
+            }
+        }else if(brandId != null){
+            if(strengthId != null){
+                return cigarRepository.findCigarByBrandIdAndStrengthId(brandId, strengthId);
+            }else{
+                return cigarRepository.findCigarByBrandId(brandId);
+            }
+        }else{
+            return cigarRepository.findCigarByStrengthId(strengthId);
+        }
+//        return cigarRepository.findCigarByCountryId(countryId);
     }
 
     public Iterable<Cigar> findAll() {

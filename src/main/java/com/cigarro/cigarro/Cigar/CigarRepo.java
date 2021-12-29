@@ -22,10 +22,13 @@ public interface CigarRepo extends CrudRepository<Cigar, Long> {
 
     //this is writing the query - tables has been created by the JPA
     List<Cigar> findCigarByBrandId(long id);
-    List<Cigar> findCigarByStrengthName(String name);
-    List<Cigar> findCigarByCountryName(String name);
-    List<Cigar> findCigarByBrandNameAndStrengthName(String brandName, String strengthName);
-    List<Cigar> findCigarByBrandNameAndCountryName(String brandName, String countryName);
-    List<Cigar> findCigarByBrandNameAndCountryNameAndStrengthName(String brandName, String countryName, String strengthName);
-
+    List<Cigar> findCigarByStrengthId(long id);
+    List<Cigar> findCigarByCountryId(long countryId);
+    List<Cigar> findCigarByBrandIdAndStrengthId(long brandId, long strengthId);
+    List<Cigar> findCigarByBrandIdAndCountryId(long brandId, long countryId);
+    List<Cigar> findCigarByBrandIdAndCountryIdAndStrengthId(long brandId,
+                                                                  long countryId,
+                                                                  long strengthId);
+    List<Cigar> findCigarByCountryIdAndStrengthId(long countryId, long strengthId);
+//    Iterable<Cigar> findCigarByCountryId(long id);
 }
