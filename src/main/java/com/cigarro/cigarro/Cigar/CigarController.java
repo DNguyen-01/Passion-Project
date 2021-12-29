@@ -1,5 +1,7 @@
 package com.cigarro.cigarro.Cigar;
 
+import java.nio.file.attribute.UserPrincipalNotFoundException;
+
 import com.cigarro.cigarro.Brand.Brand;
 import com.cigarro.cigarro.Cigar.Cigar;
 import com.cigarro.cigarro.Cigar.CigarService;
@@ -17,8 +19,15 @@ public class CigarController {
 
 
     @GetMapping("/cigar")
-    public Iterable<Cigar> getAllCigar() {
-        return cigarService.findAll();
+    public Iterable<Cigar> getAllCigar(@RequestParam(required = false) Long countryId,
+                                       @RequestParam(required = false) Long brandId,
+                                       @RequestParam(required = false) Long strengthId) {
+//        if(countryId == null){
+//            return cigarService.findAll();
+//        }else{
+            return cigarService.search(countryId, brandId, strengthId);
+//        }
+//        return cigarService.findAll();
     }
 
     @RequestMapping(value = "/cigar/{id}", method = RequestMethod.GET)
@@ -41,10 +50,10 @@ public class CigarController {
         return cigarService.delete(id);
     }
 
-    @GetMapping("/test")
-    public Iterable<Cigar> searchCigars(){
-        return cigarService.search();
-    }
+//    @GetMapping("/test")
+//    public Iterable<Cigar> searchCigars(){
+//        return cigarService.search();
+//    }
 
 }
 
