@@ -9,7 +9,7 @@ nav{
     justify-content: space-around;
     align-items: center;
     min-height: 8vh;
-    background-color: rgba(red, green, blue, alpha);
+    background-color: rgba(78, 75, 75, 0.685);
     font-family: 'Oswald', sans-serif;
 }
 
