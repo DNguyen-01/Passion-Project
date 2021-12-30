@@ -1,37 +1,178 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <h1>Cigar Friend</h1>
-<body>
+    <div class="header">
+        <br>
+    <h1>Cigar Finder</h1>
+    </div>
+    <style>
+      h1 { text-align: center; }
+      h1 { color: #EEEDE7; }
+      h1 { font-size: 60px; }
+    </style>
 
+
+    <nav>
+        <ul class="menu">
+            <li>About</li>
+
+
+            <li>Cigar News
+                <ul class="sub-menu">
+                    <li>Latest News</li>
+                </ul>
+            </li>
+
+
+            <li>Library
+                <ul class="sub-menu">
+                    <li>Recently Smoked</li>
+                    <li>Favorites</li>
+                </ul>
+            </li>
+
+
+            <li>Shop
+                <ul class="sub-menu">
+                    <li>Gift Guide</li>
+                </ul>
+            </li>
+
+        </ul>
+    </nav>
+<style>
+    {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+}
+
+body {
+  background: url('https://images.unsplash.com/photo-1603292503723-bb45c35b1903?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1630&q=80') center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Helvetica Neue', sans-serif;
+}
+
+nav {
+  text-align: center;
+}
+
+.menu {
+  display: inline-block;
+}
+
+.menu > li {
+  float: left;
+  color: peachpuff;
+  width: 170px;
+  height: 40px;
+  line-height: 40px;
+  background: rgba(0,0,0, 0.8);
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.sub-menu {
+  transform: scale(0);
+  transform-origin: top center;
+  transition: all 300ms ease-in-out;
+}
+
+
+.sub-menu li {
+  font-size: 14px;
+  background: rgba(0,0,0, 0.8);
+  padding: 8px 0;
+  color: white;
+  border-bottom: 1px solid rgba(255,255,255, 0.2);
+  /*display: none;*/
+  transform: scale(0);
+  transform-origin: top center;
+  transition: all 300ms ease-in-out;
+}
+
+.sub-menu li:last-child {
+  border-bottom: 0;
+}
+
+
+.sub-menu li:hover {
+  background: black;
+}
+
+
+.menu > li:hover .sub-menu li{
+  /*display: block;*/
+  transform: scale(1);
+}
+
+
+.menu > li:hover .sub-menu {
+  transform: scale(1);
+}
+</style>
+</head>
+
+<body>
+<br>
+<div>
+<style>
+     h3 { text-align: center; }
+     h3 { color: #FDFEFE; }
+     h3 { font-size: 20px; }
+</style>
 <h3>Manufacturers</h3>
+</div>
+<div class="button">
 <select id="manufacturers">
-    <option value=0>none</option>
+    <style>
+     { text-align: center; }
+    </style>
+    <option value=0></option>
 </select>
+</div>
 <br>
 <br>
 <h3>Country</h3>
 <select id="country">
-    <option value=0>none</option>
+    <option value=0></option>
 </select>
 <br>
 <br>
 <h3>Strength</h3>
 <select id="strength">
-<option value=0>none</option>
+<option value=0></option>
 </select>
 
 <button onclick="fetchCigars()">Search</button>
+
+
 <br>
-<table>
+<br>
+<br>
+<style>
+    table, th, td {
+    border:1px solid black;
+    }
+</style>
+<style>
+    th, tbody {
+    color: white;
+    }
+</style>
+<table style="width100%">
     <tr>
         <thead>
-        <th>Cigar</th>
+        <th>Type</th>
         <th>Manufacturer</th>
         <th>Country</th>
         <th>Strength</th>
         </thead>
-        </tr>
+    </tr>
         <tbody id="resultsTable">
 </table>
 
@@ -43,6 +184,7 @@ const brands = async() => {
   let headers = new Headers();
   headers.append('Accept', 'application/json');
 
+<!--script to get the list of brands-->
   fetch('http://localhost:8083/brand-controller/brands', {
     method: 'GET',
     headers: headers
@@ -61,6 +203,7 @@ const brands = async() => {
   );
 }
 
+<!--script to get the country list-->
 const fetchCountry = async() => {
   let headers = new Headers();
   headers.append('Accept', 'application/json');
@@ -83,6 +226,7 @@ const fetchCountry = async() => {
   );
 }
 
+<!--script to get the strength-->
 const fetchStrength = async() => {
   let headers = new Headers();
   headers.append('Accept', 'application/json');
@@ -105,6 +249,7 @@ const fetchStrength = async() => {
   );
 }
 
+<!--script to get the cigars-->
 const fetchCigars = async() => {
   var resultsBody = document.getElementById("resultsTable");
   resultsBody.innerHTML = "";
@@ -157,5 +302,5 @@ document.addEventListener('DOMContentLoaded', function(){
 }, false);
 </script>
 
-</head>
+</body>
 </html>
