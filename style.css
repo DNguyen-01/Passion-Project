@@ -148,7 +148,7 @@ nav{
 
   .searchBox1{
     text-align: left;
-    color: #FDFEFE;
+    color: #000000;
     font-size: 20px; 
   }
 
@@ -157,15 +157,15 @@ nav{
     color: #000000;
     font-size: 20px; 
   }
-
+/* 
   .move2{
     position: absolute;
     bottom: 270px;
     /* centers the box */
-    text-align: center;
+    /* text-align: center;
     width: 100%;
     padding: 70px;
-  }
+  } */ */
   
   .searchBox3{
     text-align: left;
@@ -173,14 +173,14 @@ nav{
     font-size: 20px; 
   }
 
-  .move3{
+  /* .move3{
     position: absolute;
     bottom: 270px;
     /* centers the box */
-    text-align: right;
+    /* text-align: right;
     width: 100%;
     padding: 70px;
-  }
+  } */ */
 
   .displayTable{
     border-style: solid;
@@ -203,7 +203,7 @@ nav{
     text-align: center;
     cursor: pointer;
   }
-
+/* 
   .searchButtonMove{
       position: absolute;
       bottom: 100px;
@@ -211,6 +211,6 @@ nav{
       text-align: center;
       width: 100%;
       padding: 70px;
-  }
+  } */
 
 
