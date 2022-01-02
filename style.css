@@ -20,6 +20,11 @@ nav{
     font-size: 20px;
 }
 
+.nounderline{
+    text-decoration: none;
+    color: inherit;
+}
+
 .nav-links{
     display: flex;
     justify-content: space-around;
@@ -183,13 +188,14 @@ nav{
     padding: 70px;
   } */ */
 
+  /* this CSS styling is for the display table */
   body {
     padding: 14px;
-    text-align: center;
+    text-align: left;
   }
   
   table {
-    width: 100%;
+    width: 85%;
     margin: 20px auto;
     table-layout: auto;
   }
@@ -204,11 +210,19 @@ nav{
     border-collapse: collapse;
   }
   
-  th,
-  td {
+  th {
+    font-weight: 900;
+    font-size: larger;
+    color: rgba(20, 17, 17, 0.452);  
     padding: 10px;
-    border: solid 1px;
-    text-align: center;
+  }
+
+  td {
+    color: rgba(20, 17, 17, 0.452);  
+    font-size: medium;
+    padding: 10px;
+    border: solid 0px transparent;
+    text-align: left;
   }
 
   /* .displayTable{
@@ -235,6 +249,11 @@ nav{
     /* cursor: pointer; */
     height: 50px;
     width: 50px;
+  }
+
+  .button{
+    height: 200px;
+    width: 200px;
   }
 
 
