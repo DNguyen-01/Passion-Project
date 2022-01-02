@@ -154,13 +154,13 @@ nav{
   .searchBox1{
     text-align: left;
     color: #000000;
-    font-size: 20px; 
+    font-size: 12px; 
   }
 
   .searchBox2{
-    text-align: left;
+    text-align: center;
     color: #000000;
-    font-size: 20px; 
+    font-size: 12px; 
   }
 /* 
   .move2{
@@ -173,10 +173,18 @@ nav{
   } */ */
   
   .searchBox3{
-    position: absolute;
-    text-align: left;
-    color: #080808;
-    font-size: 30px; 
+    text-align: center;
+    color: #000000;
+    font-size: 12px; 
+    font-size: 50px;
+    color: #847bf7;
+    text-transform: uppercase;
+    font-weight: normal;
+    line-height: 1;
+    text-align: center;
+    margin: 0px 0 0;
+    padding-top: 0px; 
+    padding-bottom: 0px;
   }
 
   /* .move3{
