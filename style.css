@@ -249,21 +249,34 @@ nav{
     /* cursor: pointer; */
     height: 50px;
     width: 50px;
+    text-align: center;
   }
 
   .button{
-    height: 200px;
-    width: 200px;
+    height: 25px;
+    width: 175px;
   }
 
 
   .searchButtonMove{
-      position: absolute;
-      bottom: -120px;
+      /* position: absolute; */
+      /* bottom: -120px; */
+      /* top: 100%; */
+      /* -ms-transform: translateY(305%);
+      transform: translateY(305%);
+      -ms-transform: translateX(270%);
+      transform: translateX(270%); */
       /* centers the box */
-      text-align: center;
-      width: 100%;
-      padding: 70px;
+      /* text-align: center; */
+      /* width: 100px;
+      padding: 70px; */
+
+      margin: 0;
+      position: absolute;
+      top: 80%;
+      left: 50%;
+      -ms-transform: translate(-50%, 450%);
+      transform: translate(-50%, 450%);
   }
 
 

@@ -75,5 +75,6 @@ def output(f, str):
 #     print(str)
     f.write(str + "\n")
 
+# python (main application similar to Java)
 if __name__ == "__main__":
     parse_url()
