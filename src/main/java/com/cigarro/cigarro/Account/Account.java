@@ -1,5 +1,5 @@
 package com.cigarro.cigarro.Account;
 
-public class AccountController {
+public class Account {
     
 }

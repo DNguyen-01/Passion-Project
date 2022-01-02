@@ -131,7 +131,7 @@ nav{
     /* filter: brightness(60%); */
     position: relative;
     width: 100vw;
-    height: 75vh;
+    height: 55vh;
   }
 
   /* .hero-image{
@@ -168,9 +168,10 @@ nav{
   } */ */
   
   .searchBox3{
+    position: absolute;
     text-align: left;
     color: #080808;
-    font-size: 20px; 
+    font-size: 30px; 
   }
 
   /* .move3{
@@ -182,7 +183,35 @@ nav{
     padding: 70px;
   } */ */
 
-  .displayTable{
+  body {
+    padding: 14px;
+    text-align: center;
+  }
+  
+  table {
+    width: 100%;
+    margin: 20px auto;
+    table-layout: auto;
+  }
+  
+  .fixed {
+    table-layout: fixed;
+  }
+  
+  table,
+  td,
+  th {
+    border-collapse: collapse;
+  }
+  
+  th,
+  td {
+    padding: 10px;
+    border: solid 1px;
+    text-align: center;
+  }
+
+  /* .displayTable{
     border-style: solid;
     color: #17202A;
     border: 1px;
@@ -193,7 +222,7 @@ nav{
     font-size: 19.5px;
     margin-left: auto;
     margin-right: auto;
-  }
+  } */
 
   .searchButton{
     margin-top: 5rem;
@@ -203,7 +232,7 @@ nav{
     color: black;
     /* background-color: #ddd; */
     text-align: center;
-    cursor: pointer;
+    /* cursor: pointer; */
     height: 50px;
     width: 50px;
   }
@@ -211,7 +240,7 @@ nav{
 
   .searchButtonMove{
       position: absolute;
-      bottom: -265px;
+      bottom: -120px;
       /* centers the box */
       text-align: center;
       width: 100%;
