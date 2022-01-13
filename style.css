@@ -141,6 +141,12 @@ nav {
     font-family: 'Ubuntu', sans-serif;
 }
 
+
+/* .manufacturerBar {
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+} */
+
 .bar {
     text-align: center;
 }
@@ -198,5 +204,7 @@ td {
 }
 
 .searchButton {
+    /* height: 25px;
+    width: 175px; */
     text-align: center;
 }
