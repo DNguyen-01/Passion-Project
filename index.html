@@ -75,150 +75,144 @@
     <br>
     <br>
     <div class="searchButton">
-        <div class="searchButtonMove">
-            <button onclick="fetchCigars()" class="button">Search</button>
-        </div>
+        <button onclick="fetchCigars()" class="button">Search</button>
+    </div>
 
 
 
-        <!-- how to hide this table until it is clicked -->
-        <table id="displayTable">
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Manufacturer</th>
-                    <th>Country</th>
-                    <th>Strength</th>
-                </tr>
-            </thead>
-            <tbody id="resultsTable"></tbody>
-        </table>
+    <!-- how to hide this table until it is clicked -->
+    <table id="displayTable">
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Manufacturer</th>
+                <th>Country</th>
+                <th>Strength</th>
+            </tr>
+        </thead>
+        <tbody id="resultsTable"></tbody>
+    </table>
 
 
 
-        <script>
-            const brands = async() => {
-                let headers = new Headers();
-                headers.append('Accept', 'application/json');
+    <script>
+        const brands = async() => {
+            let headers = new Headers();
+            headers.append('Accept', 'application/json');
 
-                <
-                !--script to get the list of brands-- >
-                fetch('http://localhost:8083/brand-controller/brands', {
-                    method: 'GET',
-                    headers: headers
-                }).then(response => response.json()).then(json => {
-                    manufacturer_payload = json;
-                    for (var i = 0; i < manufacturer_payload.length; i++) {
-                        var option = document.createElement("OPTION");
-                        option.innerHTML = manufacturer_payload[i].name;
-                        option.value = manufacturer_payload[i].id;
-                        manufacturers.options.add(option);
-                        console.log("added option: " + JSON.stringify(option, null, 2));
-                    }
-                }).catch(error =>
-                    console.log('An error occurred: ' + error.message)
-                );
-            }
-
-            <
-            !--script to get the country list-- >
-            const fetchCountry = async() => {
-                let headers = new Headers();
-                headers.append('Accept', 'application/json');
-
-                fetch('http://localhost:8083/country-controller/countries', {
-                    method: 'GET',
-                    headers: headers
-                }).then(response => response.json()).then(json => {
-                    var country_payload = json;
-                    for (var i = 0; i < country_payload.length; i++) {
-                        var option = document.createElement("OPTION");
-                        option.innerHTML = country_payload[i].name;
-                        option.value = country_payload[i].id;
-                        country.options.add(option);
-                        console.log("added option: " + JSON.stringify(option, null, 2));
-                    }
-                }).catch(error =>
-                    console.log('An error occurred: ' + error.message)
-                );
-            }
-
-            <
-            !--script to get the strength-- >
-            const fetchStrength = async() => {
-                let headers = new Headers();
-                headers.append('Accept', 'application/json');
-
-                fetch('http://localhost:8083/strength-controller/strength', {
-                    method: 'GET',
-                    headers: headers
-                }).then(response => response.json()).then(json => {
-                    var strength_payload = json;
-                    for (var i = 0; i < strength_payload.length; i++) {
-                        var option = document.createElement("OPTION");
-                        option.innerHTML = strength_payload[i].name;
-                        option.value = strength_payload[i].id;
-                        strength.options.add(option);
-                        console.log("added option: " + JSON.stringify(option, null, 2));
-                    }
-                }).catch(error =>
-                    console.log('An error occurred: ' + error.message)
-                );
-            }
-
-            <
-            !--script to get the cigars-- >
-            const fetchCigars = async() => {
-                var resultsBody = document.getElementById("resultsTable");
-                resultsBody.innerHTML = "";
-                let headers = new Headers();
-                headers.append('Accept', 'application/json');
-                var url = new URL('http://localhost:8083/cigar-controller/cigar')
-                console.log("countryId: " + country.options[country.selectedIndex].value);
-                var param = {};
-                if (country.options[country.selectedIndex].value != 0) {
-                    param['countryId'] = country.options[country.selectedIndex].value;
+            <!--script to get the list of brands-- >
+            fetch('http://localhost:8083/brand-controller/brands', {
+                method: 'GET',
+                headers: headers
+            }).then(response => response.json()).then(json => {
+                manufacturer_payload = json;
+                for (var i = 0; i < manufacturer_payload.length; i++) {
+                    var option = document.createElement("OPTION");
+                    option.innerHTML = manufacturer_payload[i].name;
+                    option.value = manufacturer_payload[i].id;
+                    manufacturers.options.add(option);
+                    console.log("added option: " + JSON.stringify(option, null, 2));
                 }
-                if (strength.options[strength.selectedIndex].value != 0) {
-                    param['strengthId'] = strength.options[strength.selectedIndex].value;
-                }
-                if (manufacturers.options[manufacturers.selectedIndex].value != 0) {
-                    param['brandId'] = manufacturers.options[manufacturers.selectedIndex].value;
-                }
-                url.search = new URLSearchParams(param).toString();
-                fetch(url, {
-                    method: 'GET',
-                    headers: headers
-                }).then(response => response.json()).then(json => {
-                    var cigar_payload = json;
-                    var table = document.getElementById('resultsTable');
-                    for (var i = 0; i < cigar_payload.length; i++) {
-                        var row = table.insertRow();
-                        var nameCell = row.insertCell(0);
-                        var manufacturerCell = row.insertCell(1);
-                        var countryCell = row.insertCell(2);
-                        var strengthCell = row.insertCell(3);
+            }).catch(error =>
+                console.log('An error occurred: ' + error.message)
+            );
+        }
 
-                        nameCell.innerHTML = cigar_payload[i].name;
-                        manufacturerCell.innerHTML = cigar_payload[i].brand.name;
-                        countryCell.innerHTML = cigar_payload[i].country.name;
-                        strengthCell.innerHTML = cigar_payload[i].strength.name;
-                    }
-                }).catch(error =>
-                    console.log('An error occurred: ' + error.message)
-                );
+        <!--script to get the country list-- >
+        const fetchCountry = async() => {
+            let headers = new Headers();
+            headers.append('Accept', 'application/json');
+
+            fetch('http://localhost:8083/country-controller/countries', {
+                method: 'GET',
+                headers: headers
+            }).then(response => response.json()).then(json => {
+                var country_payload = json;
+                for (var i = 0; i < country_payload.length; i++) {
+                    var option = document.createElement("OPTION");
+                    option.innerHTML = country_payload[i].name;
+                    option.value = country_payload[i].id;
+                    country.options.add(option);
+                    console.log("added option: " + JSON.stringify(option, null, 2));
+                }
+            }).catch(error =>
+                console.log('An error occurred: ' + error.message)
+            );
+        }
+
+        <!--script to get the strength-- >
+        const fetchStrength = async() => {
+            let headers = new Headers();
+            headers.append('Accept', 'application/json');
+
+            fetch('http://localhost:8083/strength-controller/strength', {
+                method: 'GET',
+                headers: headers
+            }).then(response => response.json()).then(json => {
+                var strength_payload = json;
+                for (var i = 0; i < strength_payload.length; i++) {
+                    var option = document.createElement("OPTION");
+                    option.innerHTML = strength_payload[i].name;
+                    option.value = strength_payload[i].id;
+                    strength.options.add(option);
+                    console.log("added option: " + JSON.stringify(option, null, 2));
+                }
+            }).catch(error =>
+                console.log('An error occurred: ' + error.message)
+            );
+        }
+
+        <!--script to get the cigars-- >
+        const fetchCigars = async() => {
+            var resultsBody = document.getElementById("resultsTable");
+            resultsBody.innerHTML = "";
+            let headers = new Headers();
+            headers.append('Accept', 'application/json');
+            var url = new URL('http://localhost:8083/cigar-controller/cigar')
+            console.log("countryId: " + country.options[country.selectedIndex].value);
+            var param = {};
+            if (country.options[country.selectedIndex].value != 0) {
+                param['countryId'] = country.options[country.selectedIndex].value;
             }
+            if (strength.options[strength.selectedIndex].value != 0) {
+                param['strengthId'] = strength.options[strength.selectedIndex].value;
+            }
+            if (manufacturers.options[manufacturers.selectedIndex].value != 0) {
+                param['brandId'] = manufacturers.options[manufacturers.selectedIndex].value;
+            }
+            url.search = new URLSearchParams(param).toString();
+            fetch(url, {
+                method: 'GET',
+                headers: headers
+            }).then(response => response.json()).then(json => {
+                var cigar_payload = json;
+                var table = document.getElementById('resultsTable');
+                for (var i = 0; i < cigar_payload.length; i++) {
+                    var row = table.insertRow();
+                    var nameCell = row.insertCell(0);
+                    var manufacturerCell = row.insertCell(1);
+                    var countryCell = row.insertCell(2);
+                    var strengthCell = row.insertCell(3);
 
-            <
-            !--loads first at HTML loading-- >
-            var manufacturer_payload;
-            document.addEventListener('DOMContentLoaded', function() {
-                brands();
-                fetchCountry();
-                fetchStrength();
-                // setTimeout(fetchCigars, 5000);
-            }, false);
-        </script>
+                    nameCell.innerHTML = cigar_payload[i].name;
+                    manufacturerCell.innerHTML = cigar_payload[i].brand.name;
+                    countryCell.innerHTML = cigar_payload[i].country.name;
+                    strengthCell.innerHTML = cigar_payload[i].strength.name;
+                }
+            }).catch(error =>
+                console.log('An error occurred: ' + error.message)
+            );
+        }
+
+        <!--loads first at HTML loading-- >
+        var manufacturer_payload;
+        document.addEventListener('DOMContentLoaded', function() {
+            brands();
+            fetchCountry();
+            fetchStrength();
+            // setTimeout(fetchCigars, 5000);
+        }, false);
+    </script>
 
 </body>
 
