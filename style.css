@@ -1,8 +1,8 @@
-* {
+/* * {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-}
+} */
 
 nav {
     display: flex;
@@ -140,12 +140,6 @@ nav {
     text-align: center;
     font-family: 'Ubuntu', sans-serif;
 }
-
-
-/* .manufacturerBar {
-    text-align: center;
-    font-family: 'Ubuntu', sans-serif;
-} */
 
 .bar {
     text-align: center;
