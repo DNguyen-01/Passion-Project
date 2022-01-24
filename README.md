@@ -25,3 +25,4 @@ Included with this package is:
   - wireframe images of the potential web application and mobile app will look like 
   - UML 
   - JDL relationship outline for the tables to the entities 
+  - ScreenShots of the web application Search Feature
